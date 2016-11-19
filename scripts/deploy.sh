@@ -16,7 +16,7 @@ if [ "$TRAVIS_BRANCH" != "master" -a "$TRAVIS_BRANCH" != "stable" ]; then
   exit 1
 fi
 
-copy_assets () { cp -r index.html bundle.js $1; }
+copy_assets () { cp -r favicon.png index.html bundle.js $1; }
 
 mkdir ../build
 mkdir ../build/staging
