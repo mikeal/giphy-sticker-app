@@ -18,7 +18,7 @@ const key = 'dc6zaTOxFJmzC'
 const fill = elem => document.getElementById('')
 
 function init (elem, opts) {
-  if (!opts.webtorrent) throw new Error('Missing webtorrent, required arg.')
+  // if (!opts.webtorrent) throw new Error('Missing webtorrent, required arg.')
   getJSON(api(`/stickers/trending?api_key=${key}`), (err, data) => {
     if (err) return console.error(err)
     opts.trending = data.data
@@ -33,17 +33,27 @@ function stickerInit (elem, opts) {
   elem.onclick = (e) => {
     // TODO: overlay loader
     let url = elem.querySelector('img.giphy-sticker').getAttribute('src')
-    getBlob(url, (err, blob) => {
-      if (err) return console.error(err)
-      let name = url.slice(url.lastIndexOf('/')+1)
-      let path = getPath(url)
-      webtorrent.seed(blob, {path, name}, torrent => {
-        let mag = magnet.decode(torrent.magnetURI)
-        mag.urlList = [url]
-        let magurl = magnet.encode(mag)
-        window.location = magurl.slice('magnet:'.length)
-      })
-    })
+    if (window.parent) {
+      let msg = {
+        app: 'dropub',
+        api: 'https://none/v1',
+        image: url
+      }
+      window.parent.postMessage(msg, '*')
+    }
+    window.location = url
+    // getBlob(url, (err, blob) => {
+    //   if (err) return console.error(err)
+    //   let name = url.slice(url.lastIndexOf('/')+1)
+    //   let path = getPath(url)
+    //   webtorrent.seed(blob, {path, name}, torrent => {
+    //     let mag = magnet.decode(torrent.magnetURI)
+    //     mag.urlList = [url]
+    //     let magurl = magnet.encode(mag)
+    //     window.oca
+    //     window.location = magurl.slice('magnet:'.length)
+    //   })
+    // })
   }
 }
 
@@ -73,7 +83,11 @@ const loading = require('./loading')
 const view = funky`
 ${init}
 <giphy-stickers-main>
+  <link href='//fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css' />
   <style>
+  giphy-stickers-main {
+    font-family: 'Lato', sans-serif;
+  }
   giphy-stickers {
     display:flex;
     width: 100%;

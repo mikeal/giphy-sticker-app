@@ -1,6 +1,7 @@
 const giphyMain = require('./components/giphy-stickers-main')
 const torrentImage = require('./components/webtorrent-image')
-const webtorrent = require('webtorrent')()
+// const webtorrent = require('webtorrent')()
+const webtorrent = undefined
 
 let url = new URL(window.location.toString())
 let search = url.searchParams
