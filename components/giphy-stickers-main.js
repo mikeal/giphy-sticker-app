@@ -12,7 +12,7 @@ const getBlob = (url, cb) => fetch(url)
 .then(blob => { cb(null, blob) })
 .catch(cb)
 
-const api = path => `http://api.giphy.com/v1${path}`
+const api = path => `///api.giphy.com/v1${path}`
 const key = 'dc6zaTOxFJmzC'
 
 const fill = elem => document.getElementById('')
