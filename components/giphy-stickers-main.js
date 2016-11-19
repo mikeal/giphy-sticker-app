@@ -28,6 +28,13 @@ function init (elem, opts) {
 
 const getPath = url => (new URL(url)).pathname
 
+const setHeight = () => {
+  if (window.parent) {
+    let msg = {height: document.body.offsetHeight}
+    window.parent.postMessage(msg, '*')
+  }
+}
+
 function stickerInit (elem, opts) {
   const webtorrent = opts.webtorrent
   elem.onclick = (e) => {
@@ -55,6 +62,7 @@ function stickerInit (elem, opts) {
     //   })
     // })
   }
+  elem.querySelector('img').onload = setHeight
 }
 
 const giphySticker = funky`
