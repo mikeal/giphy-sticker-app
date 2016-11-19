@@ -6,7 +6,7 @@
   "scripts": {
     "start": "budo index.js:bundle.js",
     "build": "browserify index.js | babili -o bundle.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" "
   },
   "keywords": [],
   "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
