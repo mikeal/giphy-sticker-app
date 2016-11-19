@@ -1,0 +1,26 @@
+{
+  "name": "giphy-sticker-app",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo index.js:bundle.js",
+    "build": "browserify index.js | babili -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mikeal Rogers <mikeal.rogers@gmail.com> (http://www.mikealrogers.com)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "funky": "^2.2.0",
+    "magnet-uri": "^5.1.5",
+    "webtorrent": "^0.97.2",
+    "whatwg-fetch": "^2.0.1"
+  },
+  "devDependencies": {
+    "babili": "0.0.8",
+    "browserify": "^13.1.1",
+    "budo": "^9.2.2",
+    "standard": "^8.5.0"
+  }
+}
