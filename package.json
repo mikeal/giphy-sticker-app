@@ -14,13 +14,13 @@
   "dependencies": {
     "funky": "^2.2.0",
     "magnet-uri": "^5.1.5",
-    "webtorrent": "^0.97.2",
+    "webtorrent": "^0.98.19",
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {
-    "babili": "0.0.8",
-    "browserify": "^13.1.1",
-    "budo": "^9.2.2",
-    "standard": "^8.5.0"
+    "babili": "0.1.4",
+    "browserify": "^14.4.0",
+    "budo": "^10.0.3",
+    "standard": "^10.0.2"
   }
 }
